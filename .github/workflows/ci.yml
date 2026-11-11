@@ -27,3 +27,20 @@ jobs:
       - name: Exécuter les tests
         run: |
           pytest
+
+  test-jest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Télécharger le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer les tests Jest
+        run: npm test
